@@ -8,9 +8,9 @@ function CounterActions() {
 
   return (
     <div>
-        <button onClick={ ()=> dispatch(decrement())}> - </button>
-        <button onClick={ ()=> dispatch(increment())}> + </button>
-        <button onClick={ ()=> dispatch(incrementByAmount(4))}> + 4 </button>
+        <button onClick={ ()=> dispatch(decrement())}> - 1 </button>
+        <button onClick={ ()=> dispatch(increment())}> + 1 </button>
+        <button onClick={ ()=> dispatch(incrementByAmount(5))}> + 5 </button>
     </div>
   )
 }
