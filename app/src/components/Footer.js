@@ -13,13 +13,23 @@ function Footer() {
         dispatch(setLanguage(lang))
     }
 
+
+
   return (
     <div>
         Footer
+        <div>
+            {Languages.map((lang,index) => (
+                <button onClick={() => handleLanguage(lang)} className={lang === language ? "active" : ""} key={index}> {lang} </button>
+            ))}
+        </div>
+        <div>
+            <button onClick={() => dispatch(setDarkMode())}>
+                {dark ? "Swtich to light mode" : "Swtich to dark mode"}
+            </button>
+        </div>
 
-        {Languages.map((lang,index) => (
-            <button onClick={() => handleLanguage(lang)} className={lang === language ? "active" : ""} key={index}> {lang} </button>
-        ))}
+      
 
     </div>
   )
