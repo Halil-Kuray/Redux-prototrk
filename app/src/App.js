@@ -1,6 +1,6 @@
 import Counter from "./components/Counter";
 import CounterActions from "./components/CounterActions";
-import React, { useState } from "react";
+import React from "react";
 
 function App() {
 
