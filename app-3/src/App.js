@@ -2,7 +2,8 @@ import { Route, Routes, Link, NavLink} from 'react-router-dom'
 import About from './pages/About';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
-
+import Categories from './categories/Categories';
+import Item from './categories/Item'
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
         </div>
       </nav>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/home/categories' element={<Categories/>} ></Route>
+        <Route path='//home/categories/:id' element={<Item />}></Route>
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
