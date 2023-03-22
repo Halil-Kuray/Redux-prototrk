@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Categories from './categories/Categories';
 import Item from './categories/Item'
+import Page404 from './pages/Page404';
 
 function App() {
   return (
@@ -35,10 +36,13 @@ function App() {
         </div>
       </nav>
       <Routes>
+        <Route path='/' element={<Home />} />
         <Route path='/:id/:item' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='*' element={Page404} />
       </Routes>
+      
     </main>
 
   );
