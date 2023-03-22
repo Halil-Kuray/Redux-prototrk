@@ -8,7 +8,7 @@ import Item from './categories/Item'
 function App() {
   return (
     <main>
-            <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 mb-2">
+      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 mb-2">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
             <NavLink to='/' className="flex items-center text-white">
               Home
@@ -35,9 +35,7 @@ function App() {
         </div>
       </nav>
       <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/home/categories' element={<Categories/>} ></Route>
-        <Route path='//home/categories/:id' element={<Item />}></Route>
+        <Route path='/:id/:item' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
