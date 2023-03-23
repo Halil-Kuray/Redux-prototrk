@@ -9,7 +9,7 @@ function App() {
 
     async function fetchData() {
       const response = await fetch(
-        `http://transport.opendata.ch/v1/connections?from=${from}&to=${to}`
+        `https://transport.opendata.ch/v1/connections?from=${from}&to=${to}`
       );
       const data = await response.json();
       if (data && data.connections) {
