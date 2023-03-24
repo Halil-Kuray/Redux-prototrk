@@ -29,6 +29,13 @@ function App() {
 
     return hhmm
   }
+  function formatDuration(timeString) {
+    const timeParts = timeString.split(':');
+    const hours = parseInt(timeString.substr(3, 2));
+    const minutes = parseInt(timeParts[1]);
+    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    return formattedTime;
+  }
 
   return (
     <div className="bg-blue-200">
@@ -106,7 +113,7 @@ function App() {
                     {connection.to.station.name} Platform:
                     {connection.to.platform}
                   </td>
-                  <td className="px-6 py-4">{connection.duration}</td>
+                  <td className="px-6 py-4">{formatDuration(connection.duration)}</td>
                   <td className="px-6 py-4">{formatTime(connection.from.departure)}</td>
                   <td className="px-6 py-4">{formatTime(connection.to.arrival)}</td>
                 </tr>
