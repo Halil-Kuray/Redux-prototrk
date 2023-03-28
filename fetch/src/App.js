@@ -9,16 +9,25 @@ import React, {useEffect, useState} from "react";
   const [error, setError] = useState(null);
 
   useEffect( () => {
+    //ASYNC AWAIT FETCH
+    // const fetchData =  async () => {
+    //   const res = await (await fetch(`https://jsonplaceholder.typicode.com/posts`)).json()
+    //   if( res ) {
+    //     console.table(res)
+    //   } 
+    // }
+    // fetchData()
 
-    const fetchData =  async () => {
-      const res = await (await fetch(`https://jsonplaceholder.typicode.com/posts`)).json()
-      if( res ) {
-        console.table(res)
-      } 
-    }
-    fetchData()
+    fetch(`https://jsonplaceholder.typicode.com/posts`)
+      .then(res =>  {
+        res.json()
+      })
+      .then(data => console.table(data))
+      .catch(err => {
+        console.log(err)
+      })
 
-  }, [])
+  },)
 
 
 
