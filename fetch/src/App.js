@@ -20,6 +20,9 @@ import React, {useEffect, useState} from "react";
 
     fetch(`https://jsonplaceholder.typicode.com/posts`)
       .then(res =>  {
+        if( !res.status ) {
+          console.log(`This is an HTTP error: The status is ${res.status}`)
+        }
         res.json()
       })
       .then(data => console.table(data))
