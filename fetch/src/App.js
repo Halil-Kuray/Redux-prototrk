@@ -18,26 +18,45 @@ import React, {useEffect, useState} from "react";
     // }
     // fetchData()
 
-    fetch(`https://jsonplaceholder.typicode.com/posts`)
+    fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5`)
       .then(res =>  {
         if( !res.status ) {
           console.log(`This is an HTTP error: The status is ${res.status}`)
         }
-        res.json()
+        return res.json()
       })
-      .then(data => console.table(data))
+      .then(data => {
+        setData(data)
+        setError(null)
+      })
       .catch(err => {
-        console.log(err)
+        setError(err.message)
+        setData(null)
+      })
+      .finally(() => {
+        setLoading(false)
       })
 
-  },)
+  }, [])
 
 
 
 
   return (
     <div className="App">
-      
+          <h1>API Posts</h1>
+          {loading && <div>A moment please...</div>}
+          {error && (
+            <div>{`There is a problem fetching the post data - ${error}`}</div>
+          )}
+          <ul>
+            {data &&
+              data.map(({ id, title }) => (
+                <li key={id}>
+                  <h3>{title}</h3>
+                </li>
+              ))}
+          </ul>
     </div>
   );
 }
